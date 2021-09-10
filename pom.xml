@@ -110,7 +110,7 @@
                 <executions>
                     <execution>
                         <configuration>
-                            <mainClass>com.somepackege.WebApplication</mainClass>
+                            <mainClass>com.somepackage.WebApplication</mainClass>
                         </configuration>
                     </execution>
                 </executions>
