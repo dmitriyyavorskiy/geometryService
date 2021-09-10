@@ -5,13 +5,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.context.ApplicationPidFileWriter;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @SpringBootApplication
 @EnableWebMvc
 @EntityScan(basePackages = {"com.somepackege"})
-@ComponentScan(basePackages = {"com.somepackege"})
 @Slf4j
 public class CoreApplication {
 
