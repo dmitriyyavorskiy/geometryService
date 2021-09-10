@@ -1,0 +1,346 @@
+spring:
+  profiles:
+    active: local
+# Global configuration
+---
+spring:
+  main:
+    banner-mode: "off"
+
+server:
+  address: 127.0.0.1
+  port: 8020
+---
+spring:
+  profiles: local
+  main:
+    banner-mode: "off"
+  application:
+    name: Core-local-service
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5MB
+      max-request-size: 5MB
+  data:
+    mongodb:
+      host: 127.0.0.1
+      port: 27017
+      database: bpla
+      authentication-database: admin
+      username: mps
+      password: meswr5624swfsfdemmdsfdstysdf352346sfds
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: mpas3523asdafsfss
+    password: oasd23456jsdfjwnf45wgff235fwdfe
+server:
+  address: 127.0.0.1
+  port: 8020
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    min-response-size: 1024
+eureka:
+  client:
+#    registry-fetch-interval-seconds: 30
+    enabled: true
+    serviceUrl:
+      defaultZone: ${EUREKA_URI:http://127.0.0.1:9000/eureka}
+  instance:
+    preferIpAddress: true
+    ip-address: 127.0.0.1
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  health:
+    mail:
+      enabled: false
+  endpoint:
+    health:
+      show-details: always
+bpla:
+  terrain:
+    file-grid-float-directory-path: /data/gridfloat
+    file-hgt-directory-path: /data/hgt
+  mail:
+    url: https://bpla.mpsdevelopment.com
+  zone-update:
+    source-url: https://www.google.com/maps/d/u/0/kml?mid=1fu3P09kx4m2ht9K-FVd9GUwWV9G1otPL
+    #Syntax: PT(prefix for hours, minutes seconds) value S/M/H(seconds/minutes/hours)
+    delay: PT24H
+---
+spring:
+  profiles: development
+  main:
+    banner-mode: "off"
+  application:
+    name: Core-development-service
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:8010
+        username: admin
+        password: m45dfsdf253tsgfspsdfdsg2342dfs
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5MB
+      max-request-size: 5MB
+  data:
+    mongodb:
+      host: 91.218.215.13
+      port: 27017
+      database: bpla
+      authentication-database: admin
+      username: mps
+      password: meswr5624swfsfdemmdsfdstysdf352346sfds
+      option:
+        min-connection-per-host: 50
+        max-connection-per-host: 150
+        threads-allowed-to-block-for-connection-multiplier: 5
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: mpas3523asdafsfss
+    password: oasd23456jsdfjwnf45wgff235fwdfe
+  thymeleaf:
+    encoding: UTF-8
+server:
+  address: 91.218.215.13
+  port: 8020
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    min-response-size: 1024
+eureka:
+  client:
+#    registry-fetch-interval-seconds: 30
+    serviceUrl:
+      defaultZone: http://127.0.0.1:9000/eureka
+  instance:
+    preferIpAddress: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  health:
+    mail:
+      enabled: false
+  endpoint:
+    health:
+      show-details: always
+logging:
+  level:
+    org.springframework.data.mongodb.core.MongoTemplate: info
+bpla:
+  terrain:
+    file-grid-float-directory-path: /datadrive/gridfloat
+    file-hgt-directory-path: /datadrive/hgt
+  mail:
+    url: https://bpla.mpsdevelopment.com
+  #currently for kmz received from web
+  zone-update:
+    source-url: https://www.google.com/maps/d/u/0/kml?mid=1fu3P09kx4m2ht9K-FVd9GUwWV9G1otPL
+    #Syntax: PT(prefix for hours, minutes seconds) value S/M/H(seconds/minutes/hours)
+    delay: PT24H
+---
+spring:
+  profiles: staging
+  main:
+    banner-mode: "off"
+  application:
+    name: Core-staging-service
+  boot:
+    admin:
+      client:
+        url: http://127.0.0.1:8010
+        username: admin
+        password: m45dfsdf253tsgfspsdfdsg2342dfs
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 5MB
+      max-request-size: 5MB
+  data:
+    mongodb:
+      host: 10.11.203.218
+      port: 27017
+      database: bpla
+      authentication-database: admin
+      username: mps
+      password: meswr5624swfsfdemmdsfdstysdf352346sfds
+
+  rabbitmq:
+    host: 127.0.0.1
+    port: 5672
+    username: mpas3523asdafsfss
+    password: oasd23456jsdfjwnf45wgff235fwdfe
+  thymeleaf:
+    encoding: UTF-8
+server:
+  address: 10.11.203.218
+  port: 8020
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    min-response-size: 1024
+eureka:
+  client:
+#    registry-fetch-interval-seconds: 30
+    serviceUrl:
+      defaultZone: http://10.11.203.218:9000/eureka,http://10.11.203.219:9000/eureka
+  instance:
+    preferIpAddress: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  health:
+    mail:
+      enabled: false
+  endpoint:
+    health:
+      show-details: always
+bpla:
+  terrain:
+    file-grid-float-directory-path: /datadrive/gridfloat
+    file-hgt-directory-path: /datadrive/hgt
+  mail:
+    url: https://dev-bpla.e-transport.gov.ua
+  #currently for kmz received from web
+  zone-update:
+    source-url: https://www.google.com/maps/d/u/0/kml?mid=1fu3P09kx4m2ht9K-FVd9GUwWV9G1otPL
+    #Syntax: PT(prefix for hours, minutes seconds) value S/M/H(seconds/minutes/hours)
+    delay: PT10H
+---
+spring:
+  profiles: production1
+  main:
+    banner-mode: "off"
+  application:
+    name: Core-production-service
+  boot:
+    admin:
+      client:
+        url: http://10.11.202.217:8010
+        username: admin
+        password: m45dfsdf253tsgfspsdfdsg2342dfs
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+  data:
+    mongodb:
+      host: 10.11.202.217
+      port: 27017
+      database: bpla
+      authentication-database: admin
+      username: mps
+      password: meswr5624swfsfdemmdsfdstysdf352346sfds
+
+  rabbitmq:
+    host: 10.11.202.217
+    port: 5672
+    username: mpas3523asdafsfss
+    password: oasd23456jsdfjwnf45wgff235fwdfe
+  thymeleaf:
+    encoding: UTF-8
+server:
+  address: 10.11.202.217
+  port: 8020
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    min-response-size: 1024
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.11.202.217:9000/eureka
+  instance:
+    preferIpAddress: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  health:
+    mail:
+      enabled: false
+  endpoint:
+    health:
+      show-details: always
+bpla:
+  terrain:
+    file-hgt-directory-path: /datadrive/hgt
+  mail:
+    url: https://bpla.e-transport.gov.ua
+---
+spring:
+  profiles: production2
+  main:
+    banner-mode: "off"
+  application:
+    name: Core-production-service
+  boot:
+    admin:
+      client:
+        url: http://10.11.202.217:8010
+        username: admin
+        password: m45dfsdf253tsgfspsdfdsg2342dfs
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+  data:
+    mongodb:
+      host: 10.11.202.217
+      port: 27017
+      database: bpla
+      authentication-database: admin
+      username: mps
+      password: meswr5624swfsfdemmdsfdstysdf352346sfds
+
+  rabbitmq:
+    host: 10.11.202.217
+    port: 5672
+    username: mpas3523asdafsfss
+    password: oasd23456jsdfjwnf45wgff235fwdfe
+  thymeleaf:
+    encoding: UTF-8
+server:
+  address: 10.11.202.218
+  port: 8020
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css,text/javascript,application/javascript,application/json
+    min-response-size: 1024
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://10.11.202.217:9000/eureka
+  instance:
+    preferIpAddress: true
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  health:
+    mail:
+      enabled: false
+  endpoint:
+    health:
+      show-details: always
+bpla:
+  terrain:
+    file-hgt-directory-path: /datadrive/hgt
+  mail:
+    url: https://bpla.e-transport.gov.ua
