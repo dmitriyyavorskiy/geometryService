@@ -110,7 +110,7 @@
                 <executions>
                     <execution>
                         <configuration>
-                            <mainClass>com.mpsdevelopment.bpla.core.CoreApplication</mainClass>
+                            <mainClass>com.somepackege.WebApplication</mainClass>
                         </configuration>
                     </execution>
                 </executions>

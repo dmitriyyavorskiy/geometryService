@@ -11,11 +11,11 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @EnableWebMvc
 @EntityScan(basePackages = {"com.somepackege"})
 @Slf4j
-public class CoreApplication {
+public class WebApplication {
 
     public static void main(String[] args) {
         log.info("Starting CoreApplication");
-        SpringApplication application = new SpringApplication(CoreApplication.class);
+        SpringApplication application = new SpringApplication(WebApplication.class);
         application.addListeners(new ApplicationPidFileWriter("app.pid"));
         application.run(args);
     }
